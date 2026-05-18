@@ -3,33 +3,21 @@
 
 Не стоит выполнять его локально, так как РКН заблокировал запросы для получения конфига. Это сделать можно, но лучше выполнять на удалённых серверах.
 
-## Вариант 1: Aeza Terminator
-1. Заходим на https://terminator.aeza.net
-2. Выбираем **`debian`**
-3. Вставляем команду (Shift + Insert):
-```bash
-bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/sar2718/warp-amnezia-generator/main/warp_generator.sh)
-```
-4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaVPN!👍
+## Вариант 1: WSL (Windows)
+1. Установите WSL.
+2. В терминале откройте папку с проектом.
+3. Выполните:
+   ```bash
+   sudo bash warp_generator.sh
+   ```
+   - Со второго запуска `sudo` не нужен, если зависимости уже стоят.
+   - Флаг `-q` или `--quiet` подавляет вывод секретного конфига и `vpn://...` в терминале.
+   - Флаг `-n N` или `--count N` сгенерирует сразу N конфигов за один запуск (`WARP.conf`, `WARP_1.conf`, ...) в подпапке `configs/`.
+   - Флаг `-h` или `--help` покажет справку и выйдет.
+5. Файл `WARP.conf` появится в подпапке `configs/` рядом со скриптом — папка создаётся автоматически. Повторные запуски создают `WARP_1.conf`, `WARP_2.conf` и т.д. — старые конфиги не перезаписываются.
+6. Импортируйте `.conf` в AmneziaVPN или AmneziaWG.
 
-## Вариант 2: pad.ws
-1. Заходим на https://pad.ws
-2. Continue with Google
-3. В окне Dashboard, если будет кнопка Start, нажмите на неё
-4. Terminal
-5. Вставляем команду (Shift + Insert):
-```bash
-bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/sar2718/warp-amnezia-generator/main/warp_generator.sh)
-```
-6. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaVPN!👍
-
-## Вариант 3: Replit
-1. Тыкаем сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/sar2718/warp-amnezia-generator)
-2. Создаём аккаунт
-3. Нажимаем кнопку **`Run`** вверху
-4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaVPN!👍
-
-## Вариант 4: GitHub Codespaces
+## Вариант 2: GitHub Codespaces
 1. Переходим по ссылке: https://github.com/sar2718/warp-amnezia-generator/codespaces
 2. Вводим учётные данные GitHub (потребуется авторизация, если вы не вошли в аккаунт)
 3. Нажимаем **`Create codespace on main`**
@@ -44,19 +32,31 @@ bash warp_generator.sh
    - Нажимаем на три точки → **Delete**  
    *GitHub удаляет Codespaces автоматически через некоторое время бездействия, но лучше удалить сразу.*
 
-## Вариант 5: WSL (Windows)
-1. Установите WSL.
-2. В терминале откройте папку с проектом.
-3. Выполните:
-   ```bash
-   sudo bash warp_generator.sh
-   ```
-   - Со второго запуска `sudo` не нужен, если зависимости уже стоят.
-   - Флаг `-q` или `--quiet` подавляет вывод секретного конфига и `vpn://...` в терминале.
-   - Флаг `-n N` или `--count N` сгенерирует сразу N конфигов за один запуск (`WARP.conf`, `WARP_1.conf`, ...) в подпапке `configs/`.
-   - Флаг `-h` или `--help` покажет справку и выйдет.
-5. Файл `WARP.conf` появится в подпапке `configs/` рядом со скриптом — папка создаётся автоматически. Повторные запуски создают `WARP_1.conf`, `WARP_2.conf` и т.д. — старые конфиги не перезаписываются.
-6. Импортируйте `.conf` в AmneziaVPN или AmneziaWG.
+## Вариант 3: Aeza Terminator
+1. Заходим на https://terminator.aeza.net
+2. Выбираем **`debian`**
+3. Вставляем команду (Shift + Insert):
+```bash
+bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/sar2718/warp-amnezia-generator/main/warp_generator.sh)
+```
+4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaVPN!👍
+
+## Вариант 4: pad.ws
+1. Заходим на https://pad.ws
+2. Continue with Google
+3. В окне Dashboard, если будет кнопка Start, нажмите на неё
+4. Terminal
+5. Вставляем команду (Shift + Insert):
+```bash
+bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/sar2718/warp-amnezia-generator/main/warp_generator.sh)
+```
+6. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaVPN!👍
+
+## Вариант 5: Replit
+1. Тыкаем сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/sar2718/warp-amnezia-generator)
+2. Создаём аккаунт
+3. Нажимаем кнопку **`Run`** вверху
+4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaVPN!👍
 
 # Флаги командной строки
 
